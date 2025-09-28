@@ -1,0 +1,304 @@
+# Arabic translation for Saudi Address for WooCommerce
+# Copyright (C) 2024 Saudi Address for WooCommerce
+# This file is distributed under the same license as the Saudi Address for WooCommerce package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Saudi Address for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/saudi-address-woocommerce\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#: saudi-address-woocommerce.php:48
+msgid "Saudi Address for WooCommerce requires WooCommerce to be installed and active."
+msgstr "يتطلب إضافة Saudi Address for WooCommerce تثبيت وتفعيل WooCommerce."
+
+#: includes/class-saudi-address-checkout.php:47
+msgid "Loading..."
+msgstr "جاري التحميل..."
+
+#: includes/class-saudi-address-checkout.php:48
+msgid "Select Region"
+msgstr "اختر المنطقة"
+
+#: includes/class-saudi-address-checkout.php:49
+msgid "Select City"
+msgstr "اختر المدينة"
+
+#: includes/class-saudi-address-checkout.php:50
+msgid "Select District"
+msgstr "اختر الحي"
+
+#: includes/class-saudi-address-checkout.php:51
+msgid "An error occurred. Please try again."
+msgstr "حدث خطأ. يرجى المحاولة مرة أخرى."
+
+#: includes/class-saudi-address-checkout.php:73
+msgid "Saudi National Address"
+msgstr "العنوان الوطني السعودي"
+
+#: includes/class-saudi-address-checkout.php:80
+msgid "Region"
+msgstr "المنطقة"
+
+#: includes/class-saudi-address-checkout.php:81
+msgid "Select Region"
+msgstr "اختر المنطقة"
+
+#: includes/class-saudi-address-checkout.php:89
+msgid "City"
+msgstr "المدينة"
+
+#: includes/class-saudi-address-checkout.php:90
+msgid "Select City"
+msgstr "اختر المدينة"
+
+#: includes/class-saudi-address-checkout.php:98
+msgid "District"
+msgstr "الحي"
+
+#: includes/class-saudi-address-checkout.php:99
+msgid "Select District"
+msgstr "اختر الحي"
+
+#: includes/class-saudi-address-checkout.php:107
+msgid "Building Number"
+msgstr "رقم المبنى"
+
+#: includes/class-saudi-address-checkout.php:108
+msgid "Enter building number"
+msgstr "أدخل رقم المبنى"
+
+#: includes/class-saudi-address-checkout.php:115
+msgid "Postal Code"
+msgstr "الرمز البريدي"
+
+#: includes/class-saudi-address-checkout.php:116
+msgid "Enter postal code"
+msgstr "أدخل الرمز البريدي"
+
+#: includes/class-saudi-address-checkout.php:124
+msgid "Additional Number"
+msgstr "الرقم الإضافي"
+
+#: includes/class-saudi-address-checkout.php:125
+msgid "Enter additional number"
+msgstr "أدخل الرقم الإضافي"
+
+#: includes/class-saudi-address-checkout.php:133
+msgid "Street"
+msgstr "الشارع"
+
+#: includes/class-saudi-address-checkout.php:134
+msgid "Enter street name"
+msgstr "أدخل اسم الشارع"
+
+#: includes/class-saudi-address-checkout.php:142
+msgid "Unit Number"
+msgstr "رقم الوحدة"
+
+#: includes/class-saudi-address-checkout.php:143
+msgid "Enter unit number (optional)"
+msgstr "أدخل رقم الوحدة (اختياري)"
+
+#: includes/class-saudi-address-checkout.php:175
+msgid "Postal code must be 5 digits."
+msgstr "يجب أن يكون الرمز البريدي 5 أرقام."
+
+#: includes/class-saudi-address-checkout.php:179
+msgid "Building number must be numeric."
+msgstr "يجب أن يكون رقم المبنى رقماً."
+
+#: includes/class-saudi-address-checkout.php:183
+msgid "Additional number must be numeric."
+msgstr "يجب أن يكون الرقم الإضافي رقماً."
+
+#: includes/class-saudi-address-checkout.php:240
+msgid "Saudi National Address"
+msgstr "العنوان الوطني السعودي"
+
+#: includes/class-saudi-address-checkout.php:281
+msgid "Saudi National Address"
+msgstr "العنوان الوطني السعودي"
+
+#: includes/class-saudi-address-admin.php:36
+msgid "Saudi Address Settings"
+msgstr "إعدادات العنوان السعودي"
+
+#: includes/class-saudi-address-admin.php:37
+msgid "Saudi Address"
+msgstr "العنوان السعودي"
+
+#: includes/class-saudi-address-admin.php:87
+msgid "Saudi Address Settings"
+msgstr "إعدادات العنوان السعودي"
+
+#: includes/class-saudi-address-admin.php:98
+msgid "API URL"
+msgstr "رابط API"
+
+#: includes/class-saudi-address-admin.php:105
+msgid "The Saudi National Address API URL. Default: https://apina.address.gov.sa/NationalAddress/v3.1"
+msgstr "رابط API للعنوان الوطني السعودي. الافتراضي: https://apina.address.gov.sa/NationalAddress/v3.1"
+
+#: includes/class-saudi-address-admin.php:112
+msgid "API Key"
+msgstr "مفتاح API"
+
+#: includes/class-saudi-address-admin.php:119
+msgid "Get your API key from %s"
+msgstr "احصل على مفتاح API من %s"
+
+#: includes/class-saudi-address-admin.php:131
+msgid "Enable Saudi Address"
+msgstr "تفعيل العنوان السعودي"
+
+#: includes/class-saudi-address-admin.php:136
+msgid "Enable Saudi address fields on checkout"
+msgstr "تفعيل حقول العنوان السعودي في صفحة الدفع"
+
+#: includes/class-saudi-address-admin.php:142
+msgid "Required Fields"
+msgstr "الحقول المطلوبة"
+
+#: includes/class-saudi-address-admin.php:147
+msgid "Make Saudi address fields required"
+msgstr "جعل حقول العنوان السعودي مطلوبة"
+
+#: includes/class-saudi-address-admin.php:153
+msgid "Language"
+msgstr "اللغة"
+
+#: includes/class-saudi-address-admin.php:157
+msgid "Arabic"
+msgstr "العربية"
+
+#: includes/class-saudi-address-admin.php:158
+msgid "English"
+msgstr "الإنجليزية"
+
+#: includes/class-saudi-address-admin.php:161
+msgid "Language for API responses"
+msgstr "لغة استجابات API"
+
+#: includes/class-saudi-address-admin.php:168
+msgid "Verify Address"
+msgstr "التحقق من العنوان"
+
+#: includes/class-saudi-address-admin.php:173
+msgid "Verify address using API before checkout"
+msgstr "التحقق من العنوان باستخدام API قبل الدفع"
+
+#: includes/class-saudi-address-admin.php:175
+msgid "This will verify the address using the Saudi National Address API before allowing checkout completion."
+msgstr "سيتم التحقق من العنوان باستخدام API العنوان الوطني السعودي قبل السماح بإتمام الدفع."
+
+#: includes/class-saudi-address-admin.php:181
+msgid "Field Settings"
+msgstr "إعدادات الحقول"
+
+#: includes/class-saudi-address-admin.php:182
+msgid "Choose which fields to display on the checkout page."
+msgstr "اختر الحقول التي تريد عرضها في صفحة الدفع."
+
+#: includes/class-saudi-address-admin.php:186
+msgid "Available Fields"
+msgstr "الحقول المتاحة"
+
+#: includes/class-saudi-address-admin.php:192
+msgid "Region"
+msgstr "المنطقة"
+
+#: includes/class-saudi-address-admin.php:198
+msgid "City"
+msgstr "المدينة"
+
+#: includes/class-saudi-address-admin.php:204
+msgid "District"
+msgstr "الحي"
+
+#: includes/class-saudi-address-admin.php:210
+msgid "Building Number"
+msgstr "رقم المبنى"
+
+#: includes/class-saudi-address-admin.php:216
+msgid "Postal Code"
+msgstr "الرمز البريدي"
+
+#: includes/class-saudi-address-admin.php:222
+msgid "Additional Number"
+msgstr "الرقم الإضافي"
+
+#: includes/class-saudi-address-admin.php:228
+msgid "Street"
+msgstr "الشارع"
+
+#: includes/class-saudi-address-admin.php:234
+msgid "Unit Number"
+msgstr "رقم الوحدة"
+
+#: includes/class-saudi-address-admin.php:245
+msgid "API Test"
+msgstr "اختبار API"
+
+#: includes/class-saudi-address-admin.php:246
+msgid "Test your API configuration by clicking the button below."
+msgstr "اختبر إعدادات API بالنقر على الزر أدناه."
+
+#: includes/class-saudi-address-admin.php:248
+msgid "Test API Connection"
+msgstr "اختبار اتصال API"
+
+#: includes/class-saudi-address-ajax.php:43
+msgid "Security check failed"
+msgstr "فشل فحص الأمان"
+
+#: includes/class-saudi-address-ajax.php:62
+msgid "Failed to load cities"
+msgstr "فشل في تحميل المدن"
+
+#: includes/class-saudi-address-ajax.php:72
+msgid "Security check failed"
+msgstr "فشل فحص الأمان"
+
+#: includes/class-saudi-address-ajax.php:91
+msgid "Failed to load districts"
+msgstr "فشل في تحميل الأحياء"
+
+#: includes/class-saudi-address-ajax.php:101
+msgid "Security check failed"
+msgstr "فشل فحص الأمان"
+
+#: includes/class-saudi-address-ajax.php:113
+msgid "Address verified successfully"
+msgstr "تم التحقق من العنوان بنجاح"
+
+#: includes/class-saudi-address-ajax.php:115
+msgid "Address verification failed"
+msgstr "فشل التحقق من العنوان"
+
+#: includes/class-saudi-address-ajax.php:125
+msgid "You do not have sufficient permissions"
+msgstr "ليس لديك الصلاحيات الكافية"
+
+#: includes/class-saudi-address-ajax.php:129
+msgid "Security check failed"
+msgstr "فشل فحص الأمان"
+
+#: includes/class-saudi-address-ajax.php:132
+msgid "API is not configured. Please set your API key."
+msgstr "API غير مُعد. يرجى تعيين مفتاح API."
+
+#: includes/class-saudi-address-ajax.php:140
+msgid "API connection successful!"
+msgstr "تم الاتصال بـ API بنجاح!"
+
+#: includes/class-saudi-address-ajax.php:144
+msgid "API connection failed. Please check your API key and URL."
+msgstr "فشل الاتصال بـ API. يرجى التحقق من مفتاح API والرابط."

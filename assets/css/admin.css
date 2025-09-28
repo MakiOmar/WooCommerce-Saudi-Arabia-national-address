@@ -1,0 +1,120 @@
+/**
+ * Saudi Address Admin Styles
+ *
+ * @package Saudi_Address_WooCommerce
+ * @since 1.0.0
+ */
+
+.saudi-address-test-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.saudi-address-test-section h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.saudi-address-test-section p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+#api-test-result {
+    margin-top: 15px;
+}
+
+#api-test-result .notice {
+    margin: 0;
+    padding: 10px 15px;
+}
+
+#api-test-result .notice.notice-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+#api-test-result .notice.notice-error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.form-table th {
+    width: 200px;
+    padding: 20px 10px 20px 0;
+    vertical-align: top;
+}
+
+.form-table td {
+    padding: 15px 10px;
+}
+
+.form-table fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.form-table fieldset label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+.form-table fieldset input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.form-table .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
+
+.form-table input[type="url"],
+.form-table input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-table select {
+    min-width: 150px;
+}
+
+/* Button styles */
+#test-api-connection {
+    margin-top: 10px;
+}
+
+#test-api-connection:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-table th,
+    .form-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .form-table th {
+        font-weight: bold;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .form-table td {
+        border-bottom: 1px solid #eee;
+    }
+    
+    .saudi-address-test-section {
+        padding: 15px;
+    }
+}
