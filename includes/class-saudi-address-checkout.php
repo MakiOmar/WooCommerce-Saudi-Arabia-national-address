@@ -105,7 +105,7 @@ class Saudi_Address_Checkout {
         if ( get_option( 'saudi_address_show_district', 'yes' ) === 'yes' ) {
             woocommerce_form_field( 'saudi_district', array(
                 'type'        => 'select',
-                'class'       => array( 'form-row-first', 'saudi-address-field' ),
+                'class'       => array( 'form-row-wide', 'saudi-address-field' ),
                 'label'       => esc_html__( 'District', 'saudi-address-woocommerce' ),
                 'options'     => array( '' => esc_html__( 'Select District', 'saudi-address-woocommerce' ) ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
