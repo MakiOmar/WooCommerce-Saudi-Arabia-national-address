@@ -11,6 +11,8 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #f9f9f9;
+    clear: both;
+    overflow: hidden;
 }
 
 #saudi_address_fields h3 {
@@ -43,21 +45,23 @@
 
 /* Desktop and tablet: 50% width for form-row-first and form-row-last */
 @media (min-width: 769px) {
-    .saudi-address-field.form-row-first,
-    .saudi-address-field.form-row-last {
-        width: 48%;
-        float: left;
-        margin-right: 2%;
+    #saudi_address_fields .saudi-address-field.form-row-first,
+    #saudi_address_fields .saudi-address-field.form-row-last {
+        width: 48% !important;
+        float: left !important;
+        margin-right: 2% !important;
+        clear: none !important;
     }
     
-    .saudi-address-field.form-row-last {
-        margin-right: 0;
+    #saudi_address_fields .saudi-address-field.form-row-last {
+        margin-right: 0 !important;
     }
     
-    .saudi-address-field.form-row-wide {
-        width: 100%;
-        float: none;
-        clear: both;
+    #saudi_address_fields .saudi-address-field.form-row-wide {
+        width: 100% !important;
+        float: none !important;
+        clear: both !important;
+        margin-right: 0 !important;
     }
 }
 

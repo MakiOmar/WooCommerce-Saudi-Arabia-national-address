@@ -40,7 +40,7 @@ class Saudi_Address_Checkout {
     public function enqueue_scripts() {
         if ( is_checkout() ) {
             wp_enqueue_script( 'saudi-address-checkout', SAUDI_ADDRESS_WC_PLUGIN_URL . 'assets/js/checkout.js', array( 'jquery' ), SAUDI_ADDRESS_WC_VERSION, true );
-            wp_enqueue_style( 'saudi-address-checkout', SAUDI_ADDRESS_WC_PLUGIN_URL . 'assets/css/checkout.css', array(), SAUDI_ADDRESS_WC_VERSION );
+            wp_enqueue_style( 'saudi-address-checkout', SAUDI_ADDRESS_WC_PLUGIN_URL . 'assets/css/checkout.css', array( 'woocommerce-general' ), SAUDI_ADDRESS_WC_VERSION );
             
             // Localize script
             wp_localize_script( 'saudi-address-checkout', 'saudi_address_ajax', array(
@@ -68,6 +68,13 @@ class Saudi_Address_Checkout {
         if ( get_option( 'saudi_address_enabled', 'yes' ) !== 'yes' ) {
             return;
         }
+        
+        // Prevent duplicate rendering
+        static $fields_rendered = false;
+        if ( $fields_rendered ) {
+            return;
+        }
+        $fields_rendered = true;
         
         echo '<div id="saudi_address_fields">';
         echo '<h3>' . esc_html__( 'Saudi National Address', 'saudi-address-woocommerce' ) . '</h3>';
@@ -160,6 +167,7 @@ class Saudi_Address_Checkout {
             ), $checkout->get_value( 'saudi_unit_number' ) );
         }
         
+        echo '<div style="clear: both;"></div>';
         echo '</div>';
     }
     
