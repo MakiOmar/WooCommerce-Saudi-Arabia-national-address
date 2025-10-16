@@ -124,7 +124,20 @@ class Saudi_Address_WooCommerce {
      * Plugin activation
      */
     public function activate() {
-        // Add any activation tasks here
+        // Set default options
+        add_option( 'saudi_address_enabled', 'yes' );
+        add_option( 'saudi_address_required', 'yes' );
+        add_option( 'saudi_address_language', 'A' );
+        add_option( 'saudi_address_verify_address', 'no' );
+        add_option( 'saudi_address_show_region', 'yes' );
+        add_option( 'saudi_address_show_city', 'yes' );
+        add_option( 'saudi_address_show_district', 'yes' );
+        add_option( 'saudi_address_show_building_number', 'yes' );
+        add_option( 'saudi_address_show_postal_code', 'yes' );
+        add_option( 'saudi_address_show_additional_number', 'no' );
+        add_option( 'saudi_address_show_street', 'no' );
+        add_option( 'saudi_address_show_unit_number', 'no' );
+        add_option( 'saudi_address_api_url', 'https://apina.address.gov.sa/NationalAddress/v3.1' );
     }
     
     /**

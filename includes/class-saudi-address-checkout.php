@@ -61,12 +61,7 @@ class Saudi_Address_Checkout {
      */
     public function add_saudi_address_fields( $checkout ) {
         // Check if Saudi address is enabled
-        if ( ! get_option( 'saudi_address_enabled', 'yes' ) ) {
-            return;
-        }
-        
-        $api = new Saudi_Address_API();
-        if ( ! $api->is_configured() ) {
+        if ( get_option( 'saudi_address_enabled', 'yes' ) !== 'yes' ) {
             return;
         }
         

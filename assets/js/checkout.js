@@ -37,6 +37,11 @@
             var $citySelect = $('#saudi_city');
             var $districtSelect = $('#saudi_district');
             
+            // Check if region select exists
+            if ($regionSelect.length === 0) {
+                return;
+            }
+            
             // Clear existing options
             $citySelect.html('<option value="">' + saudi_address_ajax.strings.select_city + '</option>');
             $districtSelect.html('<option value="">' + saudi_address_ajax.strings.select_district + '</option>');
