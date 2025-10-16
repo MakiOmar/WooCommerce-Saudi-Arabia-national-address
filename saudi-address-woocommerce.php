@@ -110,10 +110,15 @@ class Saudi_Address_WooCommerce {
      * Initialize hooks
      */
     private function init_hooks() {
+        // Debug: Log initialization
+        error_log( 'Saudi Address: Initializing plugin classes' );
+        
         // Initialize classes
         new Saudi_Address_Checkout();
         new Saudi_Address_Admin();
         new Saudi_Address_Ajax();
+        
+        error_log( 'Saudi Address: Classes initialized' );
         
         // Activation and deactivation hooks
         register_activation_hook( __FILE__, array( $this, 'activate' ) );
