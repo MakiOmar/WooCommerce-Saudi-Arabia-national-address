@@ -39,6 +39,16 @@ class Saudi_Address_Admin {
             'saudi-address-settings',
             array( $this, 'admin_page' )
         );
+        
+        // Add debug page
+        add_submenu_page(
+            'woocommerce',
+            __( 'Saudi Address Debug', 'saudi-address-woocommerce' ),
+            __( 'Saudi Address Debug', 'saudi-address-woocommerce' ),
+            'manage_woocommerce',
+            'saudi-address-debug',
+            array( $this, 'debug_page' )
+        );
     }
     
     /**
@@ -254,6 +264,223 @@ class Saudi_Address_Admin {
                     <?php esc_html_e( 'Test API Connection', 'saudi-address-woocommerce' ); ?>
                 </button>
                 <div id="api-test-result"></div>
+            </div>
+        </div>
+        <?php
+    }
+    
+    /**
+     * Debug page
+     */
+    public function debug_page() {
+        // Handle quick fix action
+        if ( isset( $_POST['saudi_address_debug_action'] ) && check_admin_referer( 'saudi_address_debug_action' ) ) {
+            if ( $_POST['saudi_address_debug_action'] === 'set_defaults' ) {
+                update_option( 'saudi_address_enabled', 'yes' );
+                update_option( 'saudi_address_required', 'yes' );
+                update_option( 'saudi_address_language', 'A' );
+                update_option( 'saudi_address_verify_address', 'no' );
+                update_option( 'saudi_address_show_region', 'yes' );
+                update_option( 'saudi_address_show_city', 'yes' );
+                update_option( 'saudi_address_show_district', 'yes' );
+                update_option( 'saudi_address_show_building_number', 'yes' );
+                update_option( 'saudi_address_show_postal_code', 'yes' );
+                update_option( 'saudi_address_show_additional_number', 'no' );
+                update_option( 'saudi_address_show_street', 'no' );
+                update_option( 'saudi_address_show_unit_number', 'no' );
+                update_option( 'saudi_address_api_url', 'https://apina.address.gov.sa/NationalAddress/v3.1' );
+                
+                echo '<div class="notice notice-success"><p><strong>Success!</strong> Default options have been set.</p></div>';
+            }
+        }
+        ?>
+        <div class="wrap">
+            <h1><?php esc_html_e( 'Saudi Address Debug', 'saudi-address-woocommerce' ); ?></h1>
+            
+            <div style="background: #fff; padding: 20px; margin-top: 20px; border: 1px solid #ccc;">
+                <h2>1. Plugin Status</h2>
+                <table class="widefat">
+                    <thead>
+                        <tr>
+                            <th>Check</th>
+                            <th>Status</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>WordPress Version</strong></td>
+                            <td><span style="color: green;">✓</span></td>
+                            <td><?php echo esc_html( get_bloginfo( 'version' ) ); ?></td>
+                        </tr>
+                        <tr>
+                            <td><strong>WooCommerce Active</strong></td>
+                            <td>
+                                <?php if ( class_exists( 'WooCommerce' ) ) : ?>
+                                    <span style="color: green;">✓</span>
+                                <?php else : ?>
+                                    <span style="color: red;">✗</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php 
+                                if ( class_exists( 'WooCommerce' ) ) {
+                                    echo 'Version: ' . esc_html( WC()->version );
+                                } else {
+                                    echo '<span style="color: red;">WooCommerce is NOT active!</span>';
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saudi Address Plugin</strong></td>
+                            <td>
+                                <?php if ( class_exists( 'Saudi_Address_WooCommerce' ) ) : ?>
+                                    <span style="color: green;">✓</span>
+                                <?php else : ?>
+                                    <span style="color: red;">✗</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php 
+                                if ( defined( 'SAUDI_ADDRESS_WC_VERSION' ) ) {
+                                    echo 'Version: ' . esc_html( SAUDI_ADDRESS_WC_VERSION );
+                                } else {
+                                    echo '<span style="color: red;">Plugin class not found!</span>';
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Checkout Class</strong></td>
+                            <td>
+                                <?php if ( class_exists( 'Saudi_Address_Checkout' ) ) : ?>
+                                    <span style="color: green;">✓</span>
+                                <?php else : ?>
+                                    <span style="color: red;">✗</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php 
+                                echo class_exists( 'Saudi_Address_Checkout' ) ? 'Class loaded' : '<span style="color: red;">Class NOT found!</span>';
+                                ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="background: #fff; padding: 20px; margin-top: 20px; border: 1px solid #ccc;">
+                <h2>2. Plugin Settings</h2>
+                <table class="widefat">
+                    <thead>
+                        <tr>
+                            <th>Option Name</th>
+                            <th>Current Value</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $options = array(
+                            'saudi_address_enabled'                => 'Enable Saudi Address',
+                            'saudi_address_required'               => 'Required Fields',
+                            'saudi_address_language'               => 'Language',
+                            'saudi_address_show_region'            => 'Show Region',
+                            'saudi_address_show_city'              => 'Show City',
+                            'saudi_address_show_district'          => 'Show District',
+                            'saudi_address_show_building_number'   => 'Show Building Number',
+                            'saudi_address_show_postal_code'       => 'Show Postal Code',
+                            'saudi_address_api_key'                => 'API Key',
+                        );
+                        
+                        foreach ( $options as $option => $label ) {
+                            $value = get_option( $option );
+                            $is_set = ( $value !== false && $value !== '' );
+                            
+                            if ( $option === 'saudi_address_api_key' ) {
+                                $display_value = $is_set ? '****** (SET)' : '<span style="color: red;">(NOT SET)</span>';
+                            } else {
+                                $display_value = $is_set ? esc_html( $value ) : '<span style="color: red;">(NOT SET)</span>';
+                            }
+                            
+                            $status_color = $is_set ? 'green' : 'orange';
+                            $status_text = $is_set ? '✓' : '⚠';
+                            
+                            // Special check for enabled
+                            if ( $option === 'saudi_address_enabled' && $value !== 'yes' ) {
+                                $status_color = 'red';
+                                $status_text = '✗ DISABLED';
+                            }
+                            
+                            echo '<tr>';
+                            echo '<td><strong>' . esc_html( $label ) . '</strong><br/><small>' . esc_html( $option ) . '</small></td>';
+                            echo '<td>' . $display_value . '</td>';
+                            echo '<td><span style="color: ' . $status_color . ';">' . $status_text . '</span></td>';
+                            echo '</tr>';
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="background: #fff; padding: 20px; margin-top: 20px; border: 1px solid #ccc;">
+                <h2>3. Test Field Generation</h2>
+                <p>Attempting to generate fields manually:</p>
+                <div style="background: #f5f5f5; padding: 15px; border: 1px solid #ddd;">
+                    <?php
+                    if ( class_exists( 'Saudi_Address_Checkout' ) && class_exists( 'WC_Checkout' ) ) {
+                        $checkout_obj = new Saudi_Address_Checkout();
+                        $wc_checkout = WC()->checkout();
+                        
+                        ob_start();
+                        $checkout_obj->add_saudi_address_fields( $wc_checkout );
+                        $output = ob_get_clean();
+                        
+                        if ( ! empty( $output ) ) {
+                            echo '<p style="color: green;"><strong>✓ SUCCESS!</strong> Fields are being generated. Here\'s a preview:</p>';
+                            echo '<div style="max-height: 300px; overflow: auto; background: white; padding: 10px; border: 1px solid #ccc;">';
+                            echo $output;
+                            echo '</div>';
+                        } else {
+                            echo '<p style="color: red;"><strong>✗ ERROR!</strong> No fields were generated.</p>';
+                            echo '<p>This usually means:</p>';
+                            echo '<ul>';
+                            echo '<li>The plugin is disabled (saudi_address_enabled is not "yes")</li>';
+                            echo '<li>There is a PHP error preventing execution</li>';
+                            echo '</ul>';
+                        }
+                    } else {
+                        echo '<p style="color: red;"><strong>✗ ERROR!</strong> Required classes not found.</p>';
+                    }
+                    ?>
+                </div>
+            </div>
+            
+            <div style="background: #fff; padding: 20px; margin-top: 20px; border: 1px solid #ccc;">
+                <h2>4. Quick Actions</h2>
+                <form method="post">
+                    <?php wp_nonce_field( 'saudi_address_debug_action' ); ?>
+                    <input type="hidden" name="saudi_address_debug_action" value="set_defaults" />
+                    <p>
+                        <button type="submit" class="button button-primary button-large">
+                            Set Default Options Now
+                        </button>
+                    </p>
+                    <p class="description">
+                        This will set all plugin options to their default values (enabled, required, Arabic language, etc.)
+                    </p>
+                </form>
+            </div>
+            
+            <div style="background: #fffbcc; padding: 20px; margin-top: 20px; border: 1px solid #e6db55;">
+                <h2>5. Next Steps</h2>
+                <ol>
+                    <li><strong>If fields are NOT showing in the test above:</strong> Click "Set Default Options Now"</li>
+                    <li><strong>Clear your site cache</strong> (if using any caching plugin)</li>
+                    <li><strong>Go to the checkout page</strong> and check if fields appear</li>
+                    <li><strong>If still not working:</strong> Check for JavaScript errors in browser console (F12)</li>
+                </ol>
             </div>
         </div>
         <?php
