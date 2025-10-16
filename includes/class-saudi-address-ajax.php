@@ -40,7 +40,7 @@ class Saudi_Address_Ajax {
     public function get_cities() {
         // Verify nonce
         if ( ! wp_verify_nonce( $_POST['nonce'], 'saudi_address_nonce' ) ) {
-            wp_die( __( 'Security check failed', 'saudi-address-woocommerce' ) );
+            wp_die( esc_html__( 'Security check failed', 'saudi-address-woocommerce' ) );
         }
         
         $region_id = isset( $_POST['region_id'] ) ? intval( $_POST['region_id'] ) : 0;
@@ -64,7 +64,7 @@ class Saudi_Address_Ajax {
             }
             wp_send_json_success( $options );
         } else {
-            wp_send_json_error( __( 'Failed to load cities', 'saudi-address-woocommerce' ) );
+            wp_send_json_error( esc_html__( 'Failed to load cities', 'saudi-address-woocommerce' ) );
         }
     }
     
@@ -74,7 +74,7 @@ class Saudi_Address_Ajax {
     public function get_districts() {
         // Verify nonce
         if ( ! wp_verify_nonce( $_POST['nonce'], 'saudi_address_nonce' ) ) {
-            wp_die( __( 'Security check failed', 'saudi-address-woocommerce' ) );
+            wp_die( esc_html__( 'Security check failed', 'saudi-address-woocommerce' ) );
         }
         
         $city_id = isset( $_POST['city_id'] ) ? intval( $_POST['city_id'] ) : 0;
@@ -98,7 +98,7 @@ class Saudi_Address_Ajax {
             }
             wp_send_json_success( $options );
         } else {
-            wp_send_json_error( __( 'Failed to load districts', 'saudi-address-woocommerce' ) );
+            wp_send_json_error( esc_html__( 'Failed to load districts', 'saudi-address-woocommerce' ) );
         }
     }
     
@@ -108,7 +108,7 @@ class Saudi_Address_Ajax {
     public function verify_address() {
         // Verify nonce
         if ( ! wp_verify_nonce( $_POST['nonce'], 'saudi_address_nonce' ) ) {
-            wp_die( __( 'Security check failed', 'saudi-address-woocommerce' ) );
+            wp_die( esc_html__( 'Security check failed', 'saudi-address-woocommerce' ) );
         }
         
         $building_number = isset( $_POST['building_number'] ) ? intval( $_POST['building_number'] ) : 0;
@@ -147,7 +147,7 @@ class Saudi_Address_Ajax {
         
         // Verify nonce for admin AJAX
         if ( ! wp_verify_nonce( $_POST['nonce'], 'saudi_address_admin_nonce' ) ) {
-            wp_die( __( 'Security check failed', 'saudi-address-woocommerce' ) );
+            wp_die( esc_html__( 'Security check failed', 'saudi-address-woocommerce' ) );
         }
         
         $api = new Saudi_Address_API();

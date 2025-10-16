@@ -70,15 +70,15 @@ class Saudi_Address_Checkout {
         }
         
         echo '<div id="saudi_address_fields">';
-        echo '<h3>' . __( 'Saudi National Address', 'saudi-address-woocommerce' ) . '</h3>';
+        echo '<h3>' . esc_html__( 'Saudi National Address', 'saudi-address-woocommerce' ) . '</h3>';
         
         // Region field
         if ( get_option( 'saudi_address_show_region', 'yes' ) === 'yes' ) {
             woocommerce_form_field( 'saudi_region', array(
                 'type'        => 'select',
                 'class'       => array( 'form-row-wide', 'saudi-address-field' ),
-                'label'       => __( 'Region', 'saudi-address-woocommerce' ),
-                'options'     => array( '' => __( 'Select Region', 'saudi-address-woocommerce' ) ),
+                'label'       => esc_html__( 'Region', 'saudi-address-woocommerce' ),
+                'options'     => array( '' => esc_html__( 'Select Region', 'saudi-address-woocommerce' ) ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
             ), $checkout->get_value( 'saudi_region' ) );
         }
@@ -88,8 +88,8 @@ class Saudi_Address_Checkout {
             woocommerce_form_field( 'saudi_city', array(
                 'type'        => 'select',
                 'class'       => array( 'form-row-wide', 'saudi-address-field' ),
-                'label'       => __( 'City', 'saudi-address-woocommerce' ),
-                'options'     => array( '' => __( 'Select City', 'saudi-address-woocommerce' ) ),
+                'label'       => esc_html__( 'City', 'saudi-address-woocommerce' ),
+                'options'     => array( '' => esc_html__( 'Select City', 'saudi-address-woocommerce' ) ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
             ), $checkout->get_value( 'saudi_city' ) );
         }
@@ -99,8 +99,8 @@ class Saudi_Address_Checkout {
             woocommerce_form_field( 'saudi_district', array(
                 'type'        => 'select',
                 'class'       => array( 'form-row-wide', 'saudi-address-field' ),
-                'label'       => __( 'District', 'saudi-address-woocommerce' ),
-                'options'     => array( '' => __( 'Select District', 'saudi-address-woocommerce' ) ),
+                'label'       => esc_html__( 'District', 'saudi-address-woocommerce' ),
+                'options'     => array( '' => esc_html__( 'Select District', 'saudi-address-woocommerce' ) ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
             ), $checkout->get_value( 'saudi_district' ) );
         }
@@ -110,8 +110,8 @@ class Saudi_Address_Checkout {
             woocommerce_form_field( 'saudi_building_number', array(
                 'type'        => 'text',
                 'class'       => array( 'form-row-first', 'saudi-address-field' ),
-                'label'       => __( 'Building Number', 'saudi-address-woocommerce' ),
-                'placeholder' => __( 'Enter building number', 'saudi-address-woocommerce' ),
+                'label'       => esc_html__( 'Building Number', 'saudi-address-woocommerce' ),
+                'placeholder' => esc_attr__( 'Enter building number', 'saudi-address-woocommerce' ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
             ), $checkout->get_value( 'saudi_building_number' ) );
         }
@@ -121,8 +121,8 @@ class Saudi_Address_Checkout {
             woocommerce_form_field( 'saudi_postal_code', array(
                 'type'        => 'text',
                 'class'       => array( 'form-row-last', 'saudi-address-field' ),
-                'label'       => __( 'Postal Code', 'saudi-address-woocommerce' ),
-                'placeholder' => __( 'Enter postal code', 'saudi-address-woocommerce' ),
+                'label'       => esc_html__( 'Postal Code', 'saudi-address-woocommerce' ),
+                'placeholder' => esc_attr__( 'Enter postal code', 'saudi-address-woocommerce' ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
             ), $checkout->get_value( 'saudi_postal_code' ) );
         }
@@ -132,8 +132,8 @@ class Saudi_Address_Checkout {
             woocommerce_form_field( 'saudi_additional_number', array(
                 'type'        => 'text',
                 'class'       => array( 'form-row-first', 'saudi-address-field' ),
-                'label'       => __( 'Additional Number', 'saudi-address-woocommerce' ),
-                'placeholder' => __( 'Enter additional number', 'saudi-address-woocommerce' ),
+                'label'       => esc_html__( 'Additional Number', 'saudi-address-woocommerce' ),
+                'placeholder' => esc_attr__( 'Enter additional number', 'saudi-address-woocommerce' ),
                 'required'    => false,
             ), $checkout->get_value( 'saudi_additional_number' ) );
         }
@@ -143,8 +143,8 @@ class Saudi_Address_Checkout {
             woocommerce_form_field( 'saudi_street', array(
                 'type'        => 'text',
                 'class'       => array( 'form-row-last', 'saudi-address-field' ),
-                'label'       => __( 'Street', 'saudi-address-woocommerce' ),
-                'placeholder' => __( 'Enter street name', 'saudi-address-woocommerce' ),
+                'label'       => esc_html__( 'Street', 'saudi-address-woocommerce' ),
+                'placeholder' => esc_attr__( 'Enter street name', 'saudi-address-woocommerce' ),
                 'required'    => false,
             ), $checkout->get_value( 'saudi_street' ) );
         }
@@ -154,8 +154,8 @@ class Saudi_Address_Checkout {
             woocommerce_form_field( 'saudi_unit_number', array(
                 'type'        => 'text',
                 'class'       => array( 'form-row-wide', 'saudi-address-field' ),
-                'label'       => __( 'Unit Number', 'saudi-address-woocommerce' ),
-                'placeholder' => __( 'Enter unit number (optional)', 'saudi-address-woocommerce' ),
+                'label'       => esc_html__( 'Unit Number', 'saudi-address-woocommerce' ),
+                'placeholder' => esc_attr__( 'Enter unit number (optional)', 'saudi-address-woocommerce' ),
                 'required'    => false,
             ), $checkout->get_value( 'saudi_unit_number' ) );
         }
@@ -184,41 +184,41 @@ class Saudi_Address_Checkout {
         
         // Only validate fields that are enabled and shown
         if ( get_option( 'saudi_address_show_region', 'yes' ) === 'yes' ) {
-            $required_fields['saudi_region'] = __( 'Region', 'saudi-address-woocommerce' );
+            $required_fields['saudi_region'] = esc_html__( 'Region', 'saudi-address-woocommerce' );
         }
         if ( get_option( 'saudi_address_show_city', 'yes' ) === 'yes' ) {
-            $required_fields['saudi_city'] = __( 'City', 'saudi-address-woocommerce' );
+            $required_fields['saudi_city'] = esc_html__( 'City', 'saudi-address-woocommerce' );
         }
         if ( get_option( 'saudi_address_show_district', 'yes' ) === 'yes' ) {
-            $required_fields['saudi_district'] = __( 'District', 'saudi-address-woocommerce' );
+            $required_fields['saudi_district'] = esc_html__( 'District', 'saudi-address-woocommerce' );
         }
         if ( get_option( 'saudi_address_show_building_number', 'yes' ) === 'yes' ) {
-            $required_fields['saudi_building_number'] = __( 'Building Number', 'saudi-address-woocommerce' );
+            $required_fields['saudi_building_number'] = esc_html__( 'Building Number', 'saudi-address-woocommerce' );
         }
         if ( get_option( 'saudi_address_show_postal_code', 'yes' ) === 'yes' ) {
-            $required_fields['saudi_postal_code'] = __( 'Postal Code', 'saudi-address-woocommerce' );
+            $required_fields['saudi_postal_code'] = esc_html__( 'Postal Code', 'saudi-address-woocommerce' );
         }
         
         foreach ( $required_fields as $field => $label ) {
             $value = isset( $_POST[ $field ] ) ? sanitize_text_field( $_POST[ $field ] ) : '';
             if ( empty( $value ) ) {
-                wc_add_notice( sprintf( __( '%s is a required field.', 'saudi-address-woocommerce' ), $label ), 'error' );
+                wc_add_notice( sprintf( esc_html__( '%s is a required field.', 'saudi-address-woocommerce' ), esc_html( $label ) ), 'error' );
             }
         }
         
         // Validate postal code format (5 digits)
         if ( ! empty( $saudi_postal_code ) && ! preg_match( '/^\d{5}$/', $saudi_postal_code ) ) {
-            wc_add_notice( __( 'Postal code must be 5 digits.', 'saudi-address-woocommerce' ), 'error' );
+            wc_add_notice( esc_html__( 'Postal code must be 5 digits.', 'saudi-address-woocommerce' ), 'error' );
         }
         
         // Validate building number (numeric)
         if ( ! empty( $saudi_building_number ) && ! is_numeric( $saudi_building_number ) ) {
-            wc_add_notice( __( 'Building number must be numeric.', 'saudi-address-woocommerce' ), 'error' );
+            wc_add_notice( esc_html__( 'Building number must be numeric.', 'saudi-address-woocommerce' ), 'error' );
         }
         
         // Validate additional number (numeric if provided)
         if ( ! empty( $saudi_additional_number ) && ! is_numeric( $saudi_additional_number ) ) {
-            wc_add_notice( __( 'Additional number must be numeric.', 'saudi-address-woocommerce' ), 'error' );
+            wc_add_notice( esc_html__( 'Additional number must be numeric.', 'saudi-address-woocommerce' ), 'error' );
         }
     }
     
@@ -317,14 +317,14 @@ class Saudi_Address_Checkout {
      */
     public function display_saudi_address_in_admin( $order ) {
         $saudi_fields = array(
-            'saudi_region'         => __( 'Region', 'saudi-address-woocommerce' ),
-            'saudi_city'           => __( 'City', 'saudi-address-woocommerce' ),
-            'saudi_district'       => __( 'District', 'saudi-address-woocommerce' ),
-            'saudi_building_number' => __( 'Building Number', 'saudi-address-woocommerce' ),
-            'saudi_postal_code'    => __( 'Postal Code', 'saudi-address-woocommerce' ),
-            'saudi_additional_number' => __( 'Additional Number', 'saudi-address-woocommerce' ),
-            'saudi_street'         => __( 'Street', 'saudi-address-woocommerce' ),
-            'saudi_unit_number'    => __( 'Unit Number', 'saudi-address-woocommerce' ),
+            'saudi_region'         => esc_html__( 'Region', 'saudi-address-woocommerce' ),
+            'saudi_city'           => esc_html__( 'City', 'saudi-address-woocommerce' ),
+            'saudi_district'       => esc_html__( 'District', 'saudi-address-woocommerce' ),
+            'saudi_building_number' => esc_html__( 'Building Number', 'saudi-address-woocommerce' ),
+            'saudi_postal_code'    => esc_html__( 'Postal Code', 'saudi-address-woocommerce' ),
+            'saudi_additional_number' => esc_html__( 'Additional Number', 'saudi-address-woocommerce' ),
+            'saudi_street'         => esc_html__( 'Street', 'saudi-address-woocommerce' ),
+            'saudi_unit_number'    => esc_html__( 'Unit Number', 'saudi-address-woocommerce' ),
         );
         
         $has_saudi_address = false;
@@ -337,13 +337,13 @@ class Saudi_Address_Checkout {
         }
         
         if ( $has_saudi_address ) {
-            echo '<h3>' . __( 'Saudi National Address', 'saudi-address-woocommerce' ) . '</h3>';
+            echo '<h3>' . esc_html__( 'Saudi National Address', 'saudi-address-woocommerce' ) . '</h3>';
             echo '<p>';
             
             foreach ( $saudi_fields as $field => $label ) {
                 $value = get_post_meta( $order->get_id(), '_' . $field, true );
                 if ( ! empty( $value ) ) {
-                    echo '<strong>' . $label . ':</strong> ' . esc_html( $value ) . '<br/>';
+                    echo '<strong>' . esc_html( $label ) . ':</strong> ' . esc_html( $value ) . '<br/>';
                 }
             }
             
@@ -358,14 +358,14 @@ class Saudi_Address_Checkout {
      */
     public function display_saudi_address_in_order_details( $order ) {
         $saudi_fields = array(
-            'saudi_region'         => __( 'Region', 'saudi-address-woocommerce' ),
-            'saudi_city'           => __( 'City', 'saudi-address-woocommerce' ),
-            'saudi_district'       => __( 'District', 'saudi-address-woocommerce' ),
-            'saudi_building_number' => __( 'Building Number', 'saudi-address-woocommerce' ),
-            'saudi_postal_code'    => __( 'Postal Code', 'saudi-address-woocommerce' ),
-            'saudi_additional_number' => __( 'Additional Number', 'saudi-address-woocommerce' ),
-            'saudi_street'         => __( 'Street', 'saudi-address-woocommerce' ),
-            'saudi_unit_number'    => __( 'Unit Number', 'saudi-address-woocommerce' ),
+            'saudi_region'         => esc_html__( 'Region', 'saudi-address-woocommerce' ),
+            'saudi_city'           => esc_html__( 'City', 'saudi-address-woocommerce' ),
+            'saudi_district'       => esc_html__( 'District', 'saudi-address-woocommerce' ),
+            'saudi_building_number' => esc_html__( 'Building Number', 'saudi-address-woocommerce' ),
+            'saudi_postal_code'    => esc_html__( 'Postal Code', 'saudi-address-woocommerce' ),
+            'saudi_additional_number' => esc_html__( 'Additional Number', 'saudi-address-woocommerce' ),
+            'saudi_street'         => esc_html__( 'Street', 'saudi-address-woocommerce' ),
+            'saudi_unit_number'    => esc_html__( 'Unit Number', 'saudi-address-woocommerce' ),
         );
         
         $has_saudi_address = false;
@@ -378,13 +378,13 @@ class Saudi_Address_Checkout {
         }
         
         if ( $has_saudi_address ) {
-            echo '<h3>' . __( 'Saudi National Address', 'saudi-address-woocommerce' ) . '</h3>';
+            echo '<h3>' . esc_html__( 'Saudi National Address', 'saudi-address-woocommerce' ) . '</h3>';
             echo '<p>';
             
             foreach ( $saudi_fields as $field => $label ) {
                 $value = get_post_meta( $order->get_id(), '_' . $field, true );
                 if ( ! empty( $value ) ) {
-                    echo '<strong>' . $label . ':</strong> ' . esc_html( $value ) . '<br/>';
+                    echo '<strong>' . esc_html( $label ) . ':</strong> ' . esc_html( $value ) . '<br/>';
                 }
             }
             

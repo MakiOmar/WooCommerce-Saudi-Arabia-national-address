@@ -33,8 +33,8 @@ class Saudi_Address_Admin {
     public function add_admin_menu() {
         add_submenu_page(
             'woocommerce',
-            __( 'Saudi Address Settings', 'saudi-address-woocommerce' ),
-            __( 'Saudi Address', 'saudi-address-woocommerce' ),
+            esc_html__( 'Saudi Address Settings', 'saudi-address-woocommerce' ),
+            esc_html__( 'Saudi Address', 'saudi-address-woocommerce' ),
             'manage_woocommerce',
             'saudi-address-settings',
             array( $this, 'admin_page' )
@@ -43,8 +43,8 @@ class Saudi_Address_Admin {
         // Add debug page
         add_submenu_page(
             'woocommerce',
-            __( 'Saudi Address Debug', 'saudi-address-woocommerce' ),
-            __( 'Saudi Address Debug', 'saudi-address-woocommerce' ),
+            esc_html__( 'Saudi Address Debug', 'saudi-address-woocommerce' ),
+            esc_html__( 'Saudi Address Debug', 'saudi-address-woocommerce' ),
             'manage_woocommerce',
             'saudi-address-debug',
             array( $this, 'debug_page' )
@@ -134,7 +134,7 @@ class Saudi_Address_Admin {
                             <p class="description">
                                 <?php 
                                 printf( 
-                                    __( 'Get your API key from %s', 'saudi-address-woocommerce' ), 
+                                    esc_html__( 'Get your API key from %s', 'saudi-address-woocommerce' ), 
                                     '<a href="https://api.address.gov.sa/" target="_blank">https://api.address.gov.sa/</a>' 
                                 ); 
                                 ?>

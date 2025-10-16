@@ -41,6 +41,26 @@
     transition: border-color 0.3s ease;
 }
 
+/* Desktop and tablet: 50% width for form-row-first and form-row-last */
+@media (min-width: 769px) {
+    .saudi-address-field.form-row-first,
+    .saudi-address-field.form-row-last {
+        width: 48%;
+        float: left;
+        margin-right: 2%;
+    }
+    
+    .saudi-address-field.form-row-last {
+        margin-right: 0;
+    }
+    
+    .saudi-address-field.form-row-wide {
+        width: 100%;
+        float: none;
+        clear: both;
+    }
+}
+
 .saudi-address-field select:focus,
 .saudi-address-field input[type="text"]:focus {
     border-color: #0073aa;
