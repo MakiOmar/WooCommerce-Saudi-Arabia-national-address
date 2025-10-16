@@ -63,6 +63,14 @@
         clear: both !important;
         margin-right: 0 !important;
     }
+    
+    /* Ensure select fields also follow the width rules */
+    #saudi_address_fields .saudi-address-field.form-row-first select,
+    #saudi_address_fields .saudi-address-field.form-row-last select,
+    #saudi_address_fields .saudi-address-field.form-row-first input,
+    #saudi_address_fields .saudi-address-field.form-row-last input {
+        width: 100% !important;
+    }
 }
 
 .saudi-address-field select:focus,

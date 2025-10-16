@@ -83,7 +83,7 @@ class Saudi_Address_Checkout {
         if ( get_option( 'saudi_address_show_region', 'yes' ) === 'yes' ) {
             woocommerce_form_field( 'saudi_region', array(
                 'type'        => 'select',
-                'class'       => array( 'form-row-wide', 'saudi-address-field' ),
+                'class'       => array( 'form-row-first', 'saudi-address-field' ),
                 'label'       => esc_html__( 'Region', 'saudi-address-woocommerce' ),
                 'options'     => array( '' => esc_html__( 'Select Region', 'saudi-address-woocommerce' ) ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
@@ -94,7 +94,7 @@ class Saudi_Address_Checkout {
         if ( get_option( 'saudi_address_show_city', 'yes' ) === 'yes' ) {
             woocommerce_form_field( 'saudi_city', array(
                 'type'        => 'select',
-                'class'       => array( 'form-row-wide', 'saudi-address-field' ),
+                'class'       => array( 'form-row-last', 'saudi-address-field' ),
                 'label'       => esc_html__( 'City', 'saudi-address-woocommerce' ),
                 'options'     => array( '' => esc_html__( 'Select City', 'saudi-address-woocommerce' ) ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
@@ -105,7 +105,7 @@ class Saudi_Address_Checkout {
         if ( get_option( 'saudi_address_show_district', 'yes' ) === 'yes' ) {
             woocommerce_form_field( 'saudi_district', array(
                 'type'        => 'select',
-                'class'       => array( 'form-row-wide', 'saudi-address-field' ),
+                'class'       => array( 'form-row-first', 'saudi-address-field' ),
                 'label'       => esc_html__( 'District', 'saudi-address-woocommerce' ),
                 'options'     => array( '' => esc_html__( 'Select District', 'saudi-address-woocommerce' ) ),
                 'required'    => get_option( 'saudi_address_required', 'yes' ) === 'yes',
