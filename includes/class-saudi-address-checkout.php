@@ -22,16 +22,12 @@ class Saudi_Address_Checkout {
      * Constructor
      */
     public function __construct() {
-        error_log( 'Saudi Address: Checkout class constructor called' );
-        
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
         add_action( 'woocommerce_after_checkout_billing_form', array( $this, 'add_saudi_address_fields' ) );
         add_action( 'woocommerce_checkout_process', array( $this, 'validate_saudi_address_fields' ) );
         add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'save_saudi_address_fields' ) );
         add_action( 'woocommerce_admin_order_data_after_billing_address', array( $this, 'display_saudi_address_in_admin' ) );
         add_action( 'woocommerce_order_details_after_order_table', array( $this, 'display_saudi_address_in_order_details' ) );
-        
-        error_log( 'Saudi Address: Hooks registered' );
     }
     
     /**
@@ -64,17 +60,10 @@ class Saudi_Address_Checkout {
      * @param WC_Checkout $checkout Checkout object
      */
     public function add_saudi_address_fields( $checkout ) {
-        // Debug: Check if function is being called
-        error_log( 'Saudi Address: add_saudi_address_fields called' );
-        error_log( 'Saudi Address: enabled option = ' . get_option( 'saudi_address_enabled', 'not set' ) );
-        
         // Check if Saudi address is enabled
         if ( get_option( 'saudi_address_enabled', 'yes' ) !== 'yes' ) {
-            error_log( 'Saudi Address: Plugin is disabled, not showing fields' );
             return;
         }
-        
-        error_log( 'Saudi Address: Rendering fields' );
         
         echo '<div id="saudi_address_fields">';
         echo '<h3>' . __( 'Saudi National Address', 'saudi-address-woocommerce' ) . '</h3>';
