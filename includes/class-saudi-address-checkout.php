@@ -28,6 +28,10 @@ class Saudi_Address_Checkout {
         add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'save_saudi_address_fields' ) );
         add_action( 'woocommerce_admin_order_data_after_billing_address', array( $this, 'display_saudi_address_in_admin' ) );
         add_action( 'woocommerce_order_details_after_order_table', array( $this, 'display_saudi_address_in_order_details' ) );
+
+        // Persist values for logged-in customers
+        add_action( 'woocommerce_checkout_update_user_meta', array( $this, 'save_saudi_address_user_meta' ), 10, 2 );
+        add_filter( 'woocommerce_checkout_get_value', array( $this, 'prefill_saudi_address_from_user_meta' ), 10, 2 );
     }
     
     /**
@@ -241,6 +245,69 @@ class Saudi_Address_Checkout {
                 update_post_meta( $order_id, '_' . $field, $value );
             }
         }
+    }
+
+    /**
+     * Save Saudi address fields to user meta for logged-in customers.
+     *
+     * @param int   $customer_id User ID
+     * @param array $posted      Posted checkout data
+     */
+    public function save_saudi_address_user_meta( $customer_id, $posted ) {
+        if ( empty( $customer_id ) ) {
+            return;
+        }
+
+        $fields = array(
+            'saudi_region',
+            'saudi_city',
+            'saudi_district',
+            'saudi_building_number',
+            'saudi_postal_code',
+            'saudi_additional_number',
+            'saudi_street',
+            'saudi_unit_number',
+        );
+
+        foreach ( $fields as $field ) {
+            if ( isset( $_POST[ $field ] ) && '' !== $_POST[ $field ] ) {
+                update_user_meta( $customer_id, $field, sanitize_text_field( wp_unslash( $_POST[ $field ] ) ) );
+            }
+        }
+    }
+
+    /**
+     * Prefill Saudi address fields from user meta for logged-in customers.
+     *
+     * @param mixed  $value  Current value
+     * @param string $input  Field key
+     * @return mixed
+     */
+    public function prefill_saudi_address_from_user_meta( $value, $input ) {
+        if ( ! is_user_logged_in() ) {
+            return $value;
+        }
+
+        // Only target our custom fields
+        $saudi_fields = array(
+            'saudi_region',
+            'saudi_city',
+            'saudi_district',
+            'saudi_building_number',
+            'saudi_postal_code',
+            'saudi_additional_number',
+            'saudi_street',
+            'saudi_unit_number',
+        );
+
+        if ( in_array( $input, $saudi_fields, true ) && ( '' === $value || null === $value ) ) {
+            $user_value = get_user_meta( get_current_user_id(), $input, true );
+            if ( '' !== $user_value && null !== $user_value ) {
+                return $user_value;
+            }
+        }
+
+        return $value;
     }
     
     /**
